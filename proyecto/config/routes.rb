@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   devise_for :stores
   resources :stores do
-    resources :offers
+    resources :offers, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   end
   root to: 'home#index' 
   # The priority is based upon order of creation: first created -> highest priority.

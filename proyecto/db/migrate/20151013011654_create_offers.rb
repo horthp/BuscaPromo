@@ -4,8 +4,8 @@ class CreateOffers < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :picture
-
       t.timestamps null: false
+      t.belongs_to :store
     end
   end
 end

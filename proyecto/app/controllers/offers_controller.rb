@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  #before_action :set_store
 
   # GET /offers
   # GET /offers.json
@@ -23,6 +24,17 @@ class OffersController < ApplicationController
 
   # POST /offers
   # POST /offers.json
+
+#  def create
+#   @band_meeting = @band.band_meetings.build(band_meeting_params)
+#    c = create_it
+#    if c == 0 and @band_meeting.save
+#        redirect_to band_dashboard_path(@band), notice: 'Reunión agendada.'
+#    else
+#      render :new and return
+#    end
+#  end
+
   def create
     @offer = Offer.new(offer_params)
 
@@ -69,6 +81,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:name, :description, :picture)
+      params.require(:offer).permit(:store_id, :name, :description, :picture)
     end
 end
